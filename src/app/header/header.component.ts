@@ -1,11 +1,21 @@
-import { Component } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
+import { HeaderTitleService } from "../services/header-title.service";
 
 @Component({
   selector: "app-header",
-  template: `<header> 
-            <img src="assets/images/seed-icon.png" alt="">
-                <h1> Welcome to Angular Seed!</h1>
-            </header>`,
+  templateUrl: "header.component.html",
     styleUrls: ["header.component.css"]
 })
-export class HeaderComponent {}
+export class HeaderComponent implements OnInit{
+    @Input() user;
+    
+    userName: string = "Cate";
+    title: string;
+
+    constructor(private headerTitleService: HeaderTitleService){
+
+    }
+    ngOnInit(): void {
+        this.title = this.headerTitleService.getTitle();
+    }
+}
