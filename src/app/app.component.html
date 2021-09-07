@@ -1,5 +1,24 @@
 <div id="wrapper">
     <app-header [user]="user"></app-header>
-    <p> The app is working </p>
-    <app-child></app-child>
+    <app-login></app-login>
+    <p>this text is 
+        <span [ngStyle]="setImportance()">very</span> important!
+    </p>
+    <input type="radio" name="preference" id="importantHighlight" style="transform:scale(1.5)" (click)="setStylePreference('hilite')">
+    <label for="impotrantHighlight">Highlight</label>
+    <input type="radio" name="preference" id="importantHCaps" style="transform:scale(1.5)" (click)="setStylePreference('caps')">
+    <label for="impotrantCaps">Caps</label>
+    <!-- <section *ngIf="!user.registered">
+        <img src="./assets/images/choosemyPlate.gov.png">
+    </section>
+    <section *ngIf="user.registered">
+        <img src="./assets/images/generic-plate.png">
+    </section> -->
+    <!-- <div [ngSwitch]="loggedIn">
+        <p> logged in: 
+            <span *ngSwitchCase="false" class="notRegistered"> {{ loggedIn }} </span>
+            <span> {{ loggedIn }} </span>
+        </p>
+    </div> -->
+    <app-child (login)="logIn($event)"></app-child>
 </div>

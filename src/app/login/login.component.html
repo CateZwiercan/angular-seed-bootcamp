@@ -1,0 +1,20 @@
+<!-- <form #userNameForm="ngForm"  (ngSubmit)="onSubmit(userNameForm.value)">
+    <label for="userName">User Name</label>
+    <input type="text" 
+    id="userName" 
+    name="userName" 
+    [(ngModel)]="userName">
+    <button type="submit">Submit template</button>
+    <button type="button" (click)="log(userNameForm)">Acces properties</button>
+</form>
+<h1>{{ userName }}</h1> -->
+<form [formGroup]="formName"  (ngSubmit)="onSubmit(formName.value)">
+    <label for="userName">User Name</label>
+    <input type="text" 
+    id="userName" 
+    name="userName" 
+    [(ngModel)]="userName">
+    <button type="submit">Submit react</button>
+    <button type="button" (click)="log(formName)">Acces properties</button>
+</form>
+<h1>{{ userName.value }}</h1>
